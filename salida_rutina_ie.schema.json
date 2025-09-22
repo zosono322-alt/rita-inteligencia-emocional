@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Salida estandarizada de actividad IE",
+  "type": "object",
+  "required": [
+    "titulo",
+    "objetivo",
+    "duracion_total_min",
+    "pasos",
+    "preguntas_reflexivas",
+    "nota_seguridad",
+    "publico",
+    "contexto"
+  ],
+  "properties": {
+    "titulo": {
+      "type": "string"
+    },
+    "objetivo": {
+      "type": "string"
+    },
+    "duracion_total_min": {
+      "type": "number",
+      "minimum": 1
+    },
+    "publico": {
+      "type": "string"
+    },
+    "contexto": {
+      "type": "string"
+    },
+    "pasos": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "nombre",
+          "duracion_min",
+          "instrucciones"
+        ],
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "duracion_min": {
+            "type": "number",
+            "minimum": 0.5
+          },
+          "instrucciones": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "preguntas_reflexivas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "tecnicas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Técnicas usadas: respiración, reencuadre, escucha activa, etc."
+    },
+    "variantes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "nota_seguridad": {
+      "type": "string"
+    },
+    "metrica_autoevaluacion": {
+      "type": "object",
+      "properties": {
+        "escala_inicio_0a10": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "escala_fin_0a10": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        }
+      },
+      "required": []
+    }
+  }
+}
